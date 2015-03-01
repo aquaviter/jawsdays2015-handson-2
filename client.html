@@ -8,17 +8,17 @@
 <script>
 	$(function() {
 		var socket = io.connect();
-		var data = [ {label: 'device1', values: [ {x:0, y:0} ] } ];
+		var chartdata = [ {label: 'device1', values: [ {x:0, y:0} ] } ];
 		$('#chart').epoch({
 			type: 'line',
 			data: data
 		});
-		socket.on('msg', function(data) {
-			console.log(data);
+		socket.on('msg', function(record) {
+			console.log(record);
 			// push data into chart
-			values = str.split(',');
-			data.values.push({ x: values[1], y: values[2] } );
-			$('div').prepend(data + '<br>');
+			values = record.split(',');
+			chartdata.values.push({ x: values[1], y: values[2] } );
+			$('div').prepend(record + '<br>');
 		});
 	});
 </script>
