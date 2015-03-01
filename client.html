@@ -12,7 +12,6 @@
 		var chartInstance= $('#chart').epoch({
 			type: 'time.line',
 			data: chartdata,
-			axes: ['left', 'bottom']
 		});
 		var nextData;
 		socket.on('msg', function(record) {
@@ -21,7 +20,7 @@
 			values = record.split(',');
 			nextData = [{time: values[1], y: values[2] }];
 			chartInstance.push(nextData);
-			$('rawdata').prepend(record + '<br>');
+			$('#rawdata').prepend('<p>record</p>');
 		});
 
 	});
@@ -31,7 +30,7 @@
 <body class="epoch-theme-dark">
 <h1>socket.io sample</h1>
 <hr>
-<div id="chart" style="width: 700px; height: 250px"></div>
+<div id="chart" class="epoch" style="width: 100%; height: 100px;border:solid 1px #C0C0C0;"></div>
 <div id="rawdata"></div>
 </body>
 </html>
