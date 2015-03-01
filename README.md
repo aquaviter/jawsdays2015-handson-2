@@ -15,11 +15,13 @@ $ sudo yum install gcc-c++ -y
 $ sudo yum install make -y
 ```
 
-3. Download nvm.
+3. Install nvm.
 
 ```
-$ git clone git://github.com/creationix/nvm.git .nvm
-$ . .nvm/nvm.sh  
+$ git clone git://github.com/joyent/node.git
+$ cd node
+$ ./configure
+$ sudo make && make install
 ```
 
 4. Install node.js
@@ -28,6 +30,12 @@ $ . .nvm/nvm.sh
 $ nvm install v0.x.xx
 $ nvm use v0.x.xx
 $ nvm ls
+```
+
+####Run server process
+
+```
+$ node server.js
 ```
 
 ##
