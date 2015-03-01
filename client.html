@@ -8,11 +8,12 @@
 <script>
 	$(function() {
 		var socket = io.connect();
-		var chartdata = [ {label: 'data1', values: [ {time: 0, y: 0}] } ];
+		var now = ((new Date()).getTime()/1000)|0;
+		var chartdata = [ {label: 'data1', values: [ {time: now, y: 0}] } ];
 		var chartInstance= $('#chart').epoch({
 			type: 'time.line',
 			data: chartdata,
-			axes: ['left', 'bottom'],
+			axes: ['left', 'right', 'bottom', 'top'],
 			pixelRatio: 1
 		});
 		var nextData;
@@ -30,14 +31,13 @@
 <link rel="stylesheet" type="text/css" href="https://s3-ap-northeast-1.amazonaws.com/hideyypub/epoch.min.css">
 </head>
 <body class="epoch-theme-dark">
-<h1>Realtime Dashboard</h1>
+<center><h1>Realtime Dashboard</h1></center>
 <hr>
-<div id="chart" class="epoch" style="width: 100%; height: 200px;border:solid 1px #C0C0C0;"></div>
+<div id="chart" class="epoch category10" style="height: 200px;border:solid 1px #C0C0C0;"></div>
 <div id="rawdata" class="epoch"></div>
 <hr>
 <div align="right">
 <img width="150" height="65" src="https://s3-ap-northeast-1.amazonaws.com/hideyypub/jaws-ug-logo.png"><br>
-<cite align="right">Amazon Data Services Japan K.K.</cite>
 </div>
 </body>
 </html>
