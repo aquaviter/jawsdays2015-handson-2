@@ -17,7 +17,7 @@
 			console.log(record);
 			// push data into chart
 			values = record.split(',');
-			chartdata.values.push({ time: values[1], y: values[2] } );
+			chartdata[0].values.push({ time: values[1], y: values[2] } );
 			$('div').prepend(record + '<br>');
 		});
 	});
