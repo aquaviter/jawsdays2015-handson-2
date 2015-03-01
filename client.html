@@ -8,8 +8,8 @@
 <script>
 	$(function() {
 		var socket = io.connect();
-		var chartdata = [ {label: 'device1', values: [ {x:0, y:0} ] } ];
-		chart = $('#chart').epoch({
+		var chartdata = [ {label: 'device1', values: [] } ];
+		$('#chart').epoch({
 			type: 'line',
 			data: chartdata
 		});
@@ -17,7 +17,7 @@
 			console.log(record);
 			// push data into chart
 			values = record.split(',');
-			chart.push({ x: values[1], y: values[2] } );
+			chartdata.values.push({ time: values[1], y: values[2] } );
 			$('div').prepend(record + '<br>');
 		});
 	});
