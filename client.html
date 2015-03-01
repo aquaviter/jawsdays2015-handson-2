@@ -9,18 +9,21 @@
 	$(function() {
 		var socket = io.connect();
 		var chartdata = [ {label: 'device1', values: [] } ];
-		$('#chart').epoch({
+		var chartInstance= $('#chart').epoch({
 			type: 'time.line',
-			data: chartdata
+			data: chartdata,
+			axes: ['left', 'right', 'bottom'];
 		});
+		var nextData;
 		socket.on('msg', function(record) {
 			console.log(record);
 			// push data into chart
 			values = record.split(',');
-			chartdata[0].values.push({ time: values[1], y: values[2] } );
-			$('#chart').epoch({ type: 'time.line', data: chartdata });
+			nextData = [{time: values[1], y: values[2] }];
+			chartInstance.push(nextData);
 			$('div').prepend(record + '<br>');
 		});
+
 	});
 </script>
 <link rel="stylesheet" type="text/css" href="https://s3-ap-northeast-1.amazonaws.com/hideyypub/epoch.min.css">
