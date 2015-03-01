@@ -38,4 +38,29 @@ $ nvm ls
 $ node server.js
 ```
 
-##
+##Validate CF Template
+
+```
+$ aws cloudformation validate-template --template-body file:///Users/hideyy/dev/jawsdays2015-handson-2/iothandson2.template --region ap-northeast-1
+```
+
+## Edison Setup
+
+#### WiFi
+
+```
+$ configure_edison --wifi
+```
+
+```
+Configure Edison: WiFi Connection
+
+Scanning: 1 seconds left
+
+0 :     Rescan for networks
+1 :     Manually input a hidden SSID
+
+
+Enter 0 to rescan for networks.
+Enter 1 to input a hidden network SSID:
+```

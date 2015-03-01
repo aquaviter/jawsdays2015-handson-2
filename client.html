@@ -13,7 +13,7 @@
 		var chartInstance= $('#chart').epoch({
 			type: 'time.line',
 			data: chartdata,
-			axes: ['left', 'right', 'bottom', 'top'],
+			axes: ['left', 'right', 'bottom'],
 			pixelRatio: 1
 		});
 		var nextData;
@@ -33,7 +33,7 @@
 <body class="epoch-theme-dark">
 <center><h1>Realtime Dashboard</h1></center>
 <hr>
-<div id="chart" class="epoch category10" style="height: 200px;border:solid 1px #C0C0C0;"></div>
+<div id="chart" class="epoch category10" style="height: 200px;border:solid 3px #C0C0C0;"></div>
 <div id="rawdata" class="epoch"></div>
 <hr>
 <div align="right">
