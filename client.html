@@ -12,7 +12,7 @@
 		var chartInstance= $('#chart').epoch({
 			type: 'time.line',
 			data: chartdata,
-			axes: ['left', 'right', 'bottom'];
+			axes: ['left', 'right', 'bottom']
 		});
 		var nextData;
 		socket.on('msg', function(record) {
