@@ -8,7 +8,7 @@
 <script>
 	$(function() {
 		var socket = io.connect();
-		var chartdata = [ {label: 'device1', values: [] } ];
+		var chartdata = [ {label: 'device1', values: [ {time: 0, y: 0}] } ];
 		var chartInstance= $('#chart').epoch({
 			type: 'time.line',
 			data: chartdata,
