@@ -11,7 +11,7 @@
 		var chartdata = [ {label: 'device1', values: [ {x:0, y:0} ] } ];
 		$('#chart').epoch({
 			type: 'line',
-			data: data
+			data: chartdata
 		});
 		socket.on('msg', function(record) {
 			console.log(record);
