@@ -10,8 +10,8 @@ var kinesis = new aws.Kinesis({region:region});
 var fs = require('fs');
 var app = require('http').createServer(function(req, res) {
 	res.writeHead(200, {'Content-Type':'text/html'});
-	res.end(fs.readFileSync('client.html'));
-}).listen(9000);
+	res.end(fs.readFileSync('realtime.html'));
+}).listen(80);
 
 var io = require('socket.io').listen(app);
 io.sockets.on('connection', function(socket) {
