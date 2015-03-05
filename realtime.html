@@ -20,8 +20,9 @@
 		socket.on('msg', function(record) {
 			console.log(record);
 			// push data into chart
-			values = record.split(',');
-			nextData = [{time: values[1], y: values[2] }];
+			//values = record.split(',');
+			values = JSON.parse(record);
+			nextData = [{time: values.timestamp, y: values.value }];
 			chartInstance.push(nextData);
 			$('#rawdata').prepend('<p>' + record + '</p>');
 		});

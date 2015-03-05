@@ -18,8 +18,7 @@ var cognitoParams = {
 	IdentityPoolId: ""
 };
 
-var analogPin0 = m.Aio(0);
-
+// Cognito 
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.CognitoIdentityCredentials(cognitoParams);
 AWS.config.credentials.get(function(err) {
@@ -31,21 +30,22 @@ AWS.config.credentials.get(function(err) {
 AWS.config.region = 'ap-northeast-1';
 var kinesis = new AWS.Kinesis();
 
+var analogPin0 = m.Aio(0);
+
 // loop: put sensor data
 setInterval( function() {
 	var value = analogPin0.read();
-	//var record = {
-	//	devicename: deviceName,
-	//	time: (new Date).getTime()/1000,
-	//	value: value
-	//}
+	var record = {
+		devicename: deviceName,
+		time: (new Date).getTime()/1000,
+		value: value
+	}
 	var record = deviceName + ',' + (new Data).getTime()/1000 + ',' + value;
 	console.log("sensor data: " + data);
 
 	// Define kinesis parameters
 	var kinesisParams = {
-		//Data: JSON.stringify(record),
-		Data: record,
+		Data: JSON.stringify(record),
 		PartitionKey: partitionKey,
 		StreanMane: streamName
 	};
