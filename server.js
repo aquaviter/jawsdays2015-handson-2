@@ -44,7 +44,7 @@ kinesis.describeStream({StreamName:stream},function(err,result){
 
   if(err) {
     console.log("Error: Kinesis Stream (" + stream + ") is missing");
-    return;
+    process.exit();
   }
 
    var shards = result.StreamDescription.Shards;
