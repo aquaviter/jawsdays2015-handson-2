@@ -26,9 +26,9 @@
 			nextData = [{time: values.timestamp, y: values.value }];
 			chartInstance.push(nextData);
 			//$('#rawdata').prepend('<center>' + record + '</center>');
-			$('#rawdata').prepend($('<li />').append(record));
+			$('#rawdata').$('<ul>').append('<li>' + record + '</li>'));
 			$('#rawdata').vTicker({
-				height: 180,
+				height: 170,
 				animate: true
 			});
 		});
