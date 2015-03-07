@@ -41,6 +41,12 @@ io.sockets.on('connection', function(socket) {
 
 // Get an kinesis iterator
 kinesis.describeStream({StreamName:stream},function(err,result){
+
+  if(err) {
+    console.log("Error: Kinesis Stream (" + stream + ") is missing");
+    return;
+  }
+
    var shards = result.StreamDescription.Shards;
 
    // Check shards ID and get records from all shards
