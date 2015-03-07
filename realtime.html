@@ -24,12 +24,8 @@
 			values = JSON.parse(record);
 			nextData = [{time: values.timestamp, y: values.value }];
 			chartInstance.push(nextData);
-			var records = new Array(10);
-			records.unshift(record);
 			//$('#rawdata').prepend('<center>' + record + '</center>');
-			$.each(records, function(index, value){
-				$('#rawdata').append('<p><center>' + record + '</center></p');
-			});
+			$('#rawdata').text(record);
 		});
 
 	});
