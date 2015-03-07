@@ -27,13 +27,8 @@
 			nextData = [{time: values.timestamp, y: values.value }];
 			chartInstance.push(nextData);
 			//$('#rawdata').prepend('<center>' + record + '</center>');
-			$('#rawdata').append($('<ul>').append('<li>' + record + '</li>'));
-			$('#rawdata').easyTicker({
-				direction: 'down',
-				height: 170,
-				playText: 'Play',
-				stopText: 'Stop'
-			});
+			$('#screen').prepend(record);
+			//$('#rawdata').append($('<ul>').append('<li>' + record + '</li>'));
 		});
 	});
 </script>
@@ -53,8 +48,7 @@ div {
 <div align="center"><img src="https://s3-ap-northeast-1.amazonaws.com/hideyypub/jawsdays2015handson-title.png"></div>
 <div id="chart" class="epoch category20c" style="height: 200px;border:solid 5px #000000;"></div>
 <div id="rawdata" style="height:200px;border:solid 5px #000000;">
-<ul style="list-style:none;">	
-</ul>
+<textarea id='screen'></textarea>
 </div>
 <br><br>
 <div align="right">
