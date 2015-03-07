@@ -26,9 +26,7 @@
 			values = JSON.parse(record);
 			nextData = [{time: values.timestamp, y: values.value }];
 			chartInstance.push(nextData);
-			//$('#rawdata').prepend('<center>' + record + '</center>');
-			$('#screen').prepend(record);
-			//$('#rawdata').append($('<ul>').append('<li>' + record + '</li>'));
+			$('#rawdata').prepend('<p>' + record + '</p>');
 		});
 	});
 </script>
@@ -38,6 +36,7 @@ div {
 	padding: 10px;
 	font-family: 'Lato', serif;
 	font-size: 24px;
+	overflow: scroll;
 }
 
 </style>
@@ -48,7 +47,6 @@ div {
 <div align="center"><img src="https://s3-ap-northeast-1.amazonaws.com/hideyypub/jawsdays2015handson-title.png"></div>
 <div id="chart" class="epoch category20c" style="height: 200px;border:solid 5px #000000;"></div>
 <div id="rawdata" style="height:200px;border:solid 5px #000000;">
-<textarea id='screen'></textarea>
 </div>
 <br><br>
 <div align="right">
