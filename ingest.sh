@@ -17,6 +17,6 @@ while(true); do
 	aws kinesis put-record --profile $profile \
 	--stream-name $streamname --data $message --partition-key devicename;
 
-	sleep 5
+	sleep 0.5
 
 done
