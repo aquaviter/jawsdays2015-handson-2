@@ -2,23 +2,36 @@
 	edison.js
 		Collect sensor data and put the data into Amazon Kinesis Stream.
 
+    @author Hideyo Yoshida
+    @version 1.0 2015/03/07
+
+    Usage:
+      node edison.js
+
  */
 
 var m = require('mraa');
 var AWS = require('aws-sdk');
 var deviceName = 'edison1';
 var partisionKey = deviceName;
-var streamName = 'jawsdays2015-handson-track2';
 var intervalmsec = 5000;
-//var streamName = process.argv[2];
 
+// Check arguments
+if (process.argv < [3]) {
+  console.log('Error: Kinesis Stream Name is Missing.');
+  console.log('Usage: node server.js <kinesis stream name>');
+  return;
+}
+var streamName = process.argv[2];
+
+// Cognito settings
 var cognitoParams = {
 	AccountId: "",
 	RoleArn: "",
 	IdentityPoolId: ""
 };
 
-// Cognito 
+// Get a credential from Cognito 
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.CognitoIdentityCredentials(cognitoParams);
 AWS.config.credentials.get(function(err) {
@@ -27,9 +40,11 @@ AWS.config.credentials.get(function(err) {
 	}
 });
 
+// Kinesis settings
 AWS.config.region = 'ap-northeast-1';
 var kinesis = new AWS.Kinesis();
 
+// Get sensed data from analog pin
 var analogPin0 = m.Aio(0);
 
 // loop: put sensor data
