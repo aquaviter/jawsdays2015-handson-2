@@ -17,6 +17,7 @@
 			axes: ['left', 'right', 'bottom'],
 			pixelRatio: 1
 		});
+		$.simpleTicker($('#rawdata'),{'effectType':'roll'});
 		var nextData;
 		socket.on('msg', function(record) {
 			console.log(record);
