@@ -13,7 +13,7 @@ var aws = require('aws-sdk');
 var fs = require('fs');
 
 // Check arguments
-if (process.argv < [3]) {
+if (process.argv < 2) {
   console.log('Error: Kinesis Stream Name is Missing.');
   console.log('Usage: node server.js <kinesis stream name>');
   return;
