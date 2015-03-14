@@ -46,6 +46,12 @@ $ aws cloudformation validate-template --template-body file:///Users/hideyy/dev/
 
 ## Edison Setup
 
+#### Login
+```
+$ sudo cu -s 115200 -l /dev/tty.usb*****
+edison login: 
+```
+
 #### WiFi
 
 ```

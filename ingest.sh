@@ -1,9 +1,10 @@
 #!/bin/bash
 
 
-devicename="testdevice"
+devicename="sensor0"
 profile="jawsdays2015"
-streamname="jawsdays2015-handson-track2"
+streamname="jawsdays2015"
+partitionkey="device000"
 
 while(true); do
 	#date=$(date "+%Y-%m-%dT%H:%M:%SZ")
@@ -15,7 +16,7 @@ while(true); do
 	echo "base64 encode string: $message"
 
 	aws kinesis put-record --profile $profile \
-	--stream-name $streamname --data $message --partition-key devicename;
+	--stream-name $streamname --data $message --partition-key $partitionkey;
 
 	sleep 0.5
 

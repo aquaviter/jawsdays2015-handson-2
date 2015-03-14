@@ -1,0 +1,13 @@
+#!/bin/sh
+
+sudo yum install gcc-c++ make openssl-devel -y
+sudo yum install git -y
+sudo yum install ant -y
+git clone git://github.com/creationix/nvm.git .nvm
+source .nvm/nvm.sh
+nvm install v0.10.33
+
+cd ~
+git clone https://github.com/aquaviter/jawsdays2015-handson-2.git
+git clone https://github.com/aquaviter/kcl-for-iot-handson.git
+
